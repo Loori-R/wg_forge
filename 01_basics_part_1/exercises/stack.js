@@ -2,7 +2,7 @@
  * Необходимо реализовать структуру данных типа Стек (Stack)
  * Добавление и извлечение элементов возможно только в конец/из конца стека соответственно.
  */
-
+//LOOR добавить исключения
 export default class Stack {
   /**
    * в качестве "памяти" используем массив
@@ -23,7 +23,8 @@ export default class Stack {
    */
 
   push(value) {
-    // your code here
+    this.list[this.length] = value
+    this.length++
   }
 
   /**
@@ -31,7 +32,10 @@ export default class Stack {
    */
 
   pop() {
-    // your code here
+    return (
+      this.list[this.length - 1],
+      this.length--
+    )
   }
 
   /**
@@ -39,6 +43,8 @@ export default class Stack {
    */
 
   peek() {
-    // your code here
+    return this.list[this.length - 1]
+
+
   }
 }
