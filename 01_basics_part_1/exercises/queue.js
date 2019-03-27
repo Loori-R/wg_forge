@@ -21,7 +21,8 @@ export default class Queue {
    */
 
   enqueue(value) {
-    // your code is here
+    this.list[this.length] = value
+    this.length++
   }
 
   /**
@@ -30,7 +31,10 @@ export default class Queue {
    */
 
   dequeue() {
-    // your code is here
+    this.length--
+    return (
+      this.list.splice(0, 1)[0]
+    )
   }
 
   /**
@@ -39,6 +43,6 @@ export default class Queue {
    */
 
   peek() {
-    // your code is here
+    return this.list[0]
   }
 }
