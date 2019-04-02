@@ -20,7 +20,13 @@ export default class HashTable {
    */
 
   hashKey(key) {
-    // your code is here
+    if (typeof key !== 'string') { return 'key must be a string' }
+    let hash = 0;
+    for (let i = 0; i < key.length; i++) {
+      const code = key.charCodeAt(i);
+      hash += code | 0;
+    }
+    return hash;
   }
 
   /**
@@ -28,7 +34,8 @@ export default class HashTable {
    */
 
   get(key) {
-    // your code here
+    const address = this.hashKey(key);
+    return this.memory[address]
   }
 
   /**
@@ -36,7 +43,8 @@ export default class HashTable {
    */
 
   set(key, value) {
-    // your code is here
+    const address = this.hashKey(key);
+    this.memory[address] = value;
   }
 
   /**
@@ -45,6 +53,9 @@ export default class HashTable {
    */
 
   remove(key) {
-    // your code is here
+    const address = this.hashKey(key);
+    if (this.memory[address]) {
+      delete this.memory[address];
+    }
   }
 }
