@@ -10,7 +10,6 @@ export function matchEnds(words) {
   words.map((item) => {
     if (item.length < 2) { return }
     if (item[0] == item[item.length - 1]) {
-      console.log(`${item[0]} == ${item[item.length - 1]}`)
       res.push(item)
     }
   })
@@ -43,16 +42,9 @@ Hint: this can be done by making 2 lists and sorting each of them
 before combining them.
 */
 export function xLetterFirst(words) {
-  const arr = []
-  const arrX = []
-  words.map((item) => {
-    if (item[0] === 'x') {
-      arrX.push(item)
-    } else { arr.push(item) }
-  })
-  arr.sort()
-  arrX.sort()
-  return arrX.concat(arr)
+  const xFirst = words.filter(w => w[0] === 'x').sort()
+  const xNotFirst = words.filter(w => w[0] !== 'x').sort()
+  return (xFirst.concat(xNotFirst))
 }
 
 /*
