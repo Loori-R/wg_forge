@@ -32,9 +32,7 @@ export default class Queue {
 
   dequeue() {
     this.length--
-    return (
-      this.list.splice(0, 1)[0]
-    )
+    return this.list.shift()
   }
 
   /**
