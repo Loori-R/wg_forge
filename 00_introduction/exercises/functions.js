@@ -73,9 +73,7 @@ Note: function has a length property which shows how many arguments it receives
 */
 export function partial(fn, ...args) {
   if (!args[0]) { return fn }
-  const sum = args.reduce((acc, val) => { return acc + val })
-  return (...nums) => {
-    const sum2 = nums.reduce((acc, val) => { return acc + val })
-    return sum + sum2
+  return function (...nums) {
+    return fn(...args, ...nums)
   }
 }
