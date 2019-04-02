@@ -32,10 +32,8 @@ export default class Stack {
    */
 
   pop() {
-    return (
-      this.list[this.length - 1],
-      this.length--
-    )
+    this.length--
+    return this.list[this.length]
   }
 
   /**
